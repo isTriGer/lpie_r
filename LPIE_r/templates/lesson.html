@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Урок {{ lesson.number }}
+{% endblock %}
+{% block content %}
+        <div class="container mt-3">
+            <div class="row">
+
+<!--                <div class="container rounded-top-4 fixed-bottom bg-body-secondary d-lg-none text-center">-->
+<!--                    <button class="btn btn-light" data-bs-toggle="offcanvas" data-bs-target="#CourseStructureInfo">-->
+<!--                        |||-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--                <div class="col-lg-2">-->
+<!--                    <div class="offcanvas-lg offcanvas-start" tabindex="-1" id="CourseStructureInfo" aria-labelledby="offcanvasLabel">-->
+<!--                        <div class="offcanvas-header">-->
+<!--                            <h5 class="offcanvas-title" id="offcanvasLabel">Offcanvas</h5>-->
+<!--                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#CourseStructureInfo"></button>-->
+<!--                        </div>-->
+<!--                        <div class="vstack gap-3 sticky-top">-->
+<!--                            <div>-->
+<!--                                <strong>Модуль 1</strong>-->
+<!--                                <div class="vstack gap-1">-->
+<!--                                    <div>-->
+<!--                                        <a class="nav-link" href="#">1.1</a>-->
+<!--                                    </div>-->
+<!--                                    <div>-->
+<!--                                        <a class="nav-link" href="#">1.2</a>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <strong>Модуль 2</strong>-->
+<!--                                <div class="vstack gap-1">-->
+<!--                                    <div>-->
+<!--                                        <a class="nav-link" href="#">2.1</a>-->
+<!--                                    </div>-->
+<!--                                    <div>-->
+<!--                                        <a class="nav-link" href="#">.2</a>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+                <div class="col-lg-10">
+                    <h1>
+                        {{ lesson.name }}
+                    </h1>
+                    <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page">Теория</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'practice' course_slug module_slug lesson.slug %}">Практика</a>
+                            </li>
+                        </ul>
+                    <div class="border border-top-0">
+                        <div class="container p-3 fs-5">
+                            {% autoescape off %}
+                                {{ lesson.theory }}
+                            {% endautoescape %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

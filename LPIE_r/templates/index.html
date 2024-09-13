@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+LPIE главная
+{% endblock %}
+{% block content %}
+    <div class="p-3" style="background-color: #7a98a2;">
+        <div class="container">
+            <div class="text-center">
+                <picture>
+                    <source class="img-fluid" srcset="{% static 'img/lpie-logo-sm.jpg' %}" type="image/jpeg" media="(max-width:767px)">
+                    <source srcset="{% static 'img/lpie-logo.jpg' %}" type="image/jpeg" media="(min-width:768px)">
+                    <img class="img-fluid" src="{% static 'img/lpie-logo.jpg' %}">
+                </picture>
+            </div>
+            <h1 class="text-center">LPIE - learning python is easy (учить python это просто)</h1>
+        </div>
+    </div>
+
+    <div class="py-5" style="background: linear-gradient(180deg, rgba(122,152,162,1) 0%, rgba(223,221,222,1) 100%); "></div>
+    <div class="py-1" style="background-color: #dfddde;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 text-dark">
+                    <h2>О сайте</h2>
+                    <p class="fs-4">
+                        Данный сайт позволит Вам начать изучение такого языка программирования, как Python.
+                        Начните с основ и продолжайте двигаться дальше в его изучении. Следите за своим прогрессом.
+                        Практикуйтесь в написании кода, ищите ошибки.
+                        Узнавайте, где можно применить изученный Вами материал.
+                    </p>
+                </div>
+                <div class="col-lg-6 text-center">
+                   <img class="img-fluid" src="{% static 'img/img-index-info.jpg' %}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-5" style="background: linear-gradient(180deg, rgba(223, 221, 222, 1) 0%, rgba(206, 212, 218, 1) 100%);"></div>
+
+        <div class="bg-dark-subtle">
+            <div class="row ">
+                <div class="col-lg-6 text-center">
+                   <img class="img-fluid" src="{% static 'img/img-index-info-courses.jpg' %}">
+                </div>
+                <div class="col-lg-6">
+                    <h2>О курсаx</h2>
+                    <ul class="fs-4">
+                        <li>
+                            Проходите уроки
+                        </li>
+                        <li>
+                            Изучайте новые темы
+                        </li>
+                        <li>
+                            Читайте материалы
+                        </li>
+                        <li>
+                            Выполняйте задания
+                        </li>
+                        <li>
+                           Пишите код
+                        </li>
+                        <li>
+                            Закрепляйте старый материал
+                        </li>
+                    </ul>
+                    <a class="icon-link fs-5" href="{% url 'courses' %}">
+                        Перейти к курсам
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+<!--    <div style="background-color: #dfddde;">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div class="col-lg-3">-->
+<!--                    <p><h2>О сообществе </h2>(~v0.1)</p>-->
+<!--                    <p>-->
+<!--                        Узнавайте о других ресурсах для изучения программирования-->
+<!--                        Находите вдохновляющих авторов и смотрите их контент-->
+<!--                        Общайтесь с единомышленниками и делись идеями-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--                <div class="col-lg-5 text-center">-->
+<!--                   <img class="img-fluid" src="img-index-info.jpg">-->
+<!--                </div>-->
+<!--                <div class="col-lg-4">-->
+<!--                    <h2>Об аккаунте</h2>-->
+<!--                    <p>-->
+<!--                        Создайте аккаунт и откройте для себя дополнительные возможности:-->
+<!--                        Сохраняйте свой прогресс-->
+<!--                        Оставляйте отзывы и предлагайте идеи для сайта-->
+<!--                        Получайте уведомления об обновлениях-->
+<!--                        Используйте расширенный функционал при обучении-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+
+
+    <div class="bg-secondary border-top border-bottom border-black mt-5 py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 bg-dark text-light me-3">
+                    <h2>Обновления Сайта</h2>
+                    <p class="fs-4">
+                        v0<br>
+                        релиз сайта<br>
+                    </p>
+                </div>
+                <div class="col-lg-4 bg-secondary-subtle text-light-emphasis">
+                    <h2>Будущие обновления</h2>
+                    <p class="fs-5">
+                        <input class="form-check-input" type="checkbox" value="" disabled>отзывы(~v0.1r)<br>
+                        <input class="form-check-input" type="checkbox" value="" disabled>тёмный режим(~v0.1a)<br>
+                        <input class="form-check-input" type="checkbox" value="" disabled>сообщество(~v0.1)<br>
+                        <input class="form-check-input" type="checkbox" value="" disabled>новые курсы(~v0.2)<br>
+                        <input class="form-check-input" type="checkbox" value="" disabled>редактор кода(~v0.4r)<br>
+                        <input class="form-check-input" type="checkbox" value="" disabled>кастомизация аккаунта(~v0.4b)<br>
+                        <input class="form-check-input" type="checkbox" value="" disabled>форум(~v0.6-v0.8b)<br>
+                        <input class="form-check-input" type="checkbox" value="" disabled>переработка сообщества(~v0.6a-v0.8r)<br>
+                        <input class="form-check-input" type="checkbox" value="" disabled>переработка структуры курсов(~v0.9b)<br>
+                        <input class="form-check-input" type="checkbox" value="" disabled>возможность создавать свои курсы(v1a)<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

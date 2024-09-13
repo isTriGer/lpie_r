@@ -1,0 +1,24 @@
+[data-bs-theme=light] {
+  --light-icon-fill: #fff;
+  --dark-icon-fill: #000;
+}
+[data-bs-theme=dark] {
+  --light-icon-fill: #000;
+  --dark-icon-fill: #fff;
+}
+
+.icon-fill-light {
+fill: var(--light-icon-fill);
+}
+
+.icon-stroke-light {
+stroke: var(--light-icon-fill);
+}
+
+.icon-fill-black {
+fill: var(--dark-icon-fill);
+}
+
+.icon-stroke-black {
+stroke: var(--dark-icon-fill);
+}

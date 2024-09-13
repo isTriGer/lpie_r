@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Курсы
+{% endblock %}
+{% block content %}
+        <div class="container">
+            <div class="border-bottom my-3">
+                <h2>Курсы</h2>
+            </div>
+<!--            <div class="alert alert-warning alert-dismissible fade show" role="alert">-->
+<!--                Войдите в аккаунт, чтобы иметь возможность сохранять свой прогресс-->
+<!--                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button>-->
+<!--            </div>-->
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-3">
+
+                {% for course in courses %}
+                <div class="col">
+                    <div class="card h-100 overflow-scroll" style="max-height: 600px;">
+                        {% if course.image %}
+                        <img class="card-img-top" src="{{ course.image.url }}" alt="{{ course.name }}">
+                        {% endif %}
+                        <div class="card-header bg-transparent">
+                            <h3 class="card-title">{{ course.name }}</h3>
+                            <div class="card-subtitle">
+<!--                                <a href="index.html"><h6>#python</h6></a>-->
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                {{ course.description }}
+                            </p>
+                           <a class="" href="{% url 'current_course' course.slug %}">перейти</a>
+                        </div>
+<!--                        <div class="card-footer bg-transparent">-->
+<!--                            Отзывы:-->
+<!--                                <div class="progress-stacked">-->
+<!--                                  <div class="progress" style="width: 50%">-->
+<!--                                    <div class="progress-bar bg-success"></div>-->
+<!--                                  </div>-->
+<!--                                  <div class="progress" style="width: 30%">-->
+<!--                                    <div class="progress-bar bg-secondary"></div>-->
+<!--                                  </div>-->
+<!--                                  <div class="progress" style="width: 20%">-->
+<!--                                    <div class="progress-bar bg-danger"></div>-->
+<!--                                  </div>-->
+<!--                                </div>-->
+<!--                                (50/30/20)-->
+<!--                        </div>-->
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+{% endblock %}

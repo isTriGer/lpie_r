@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ course.name }}
+{% endblock %}
+{% block content %}
+        <div class="container">
+            <div class="card my-5">
+                <div class="card-body">
+                   <h1 class="card-title">{{ course.name }}</h1>
+<!--                    <div class="container">-->
+<!--                        <div class="hstack gap-4 fs-5">-->
+<!--                            <div>прогресс</div>-->
+<!--                                <div class="progress w-75" role="progressbar" aria-valuemin="0" aria-valuemax="100">-->
+<!--                                    <div class="progress-bar" style="width: 10%"></div>-->
+<!--                                </div>-->
+<!--                            <div>10%</div>-->
+<!--                        </div>-->
+<!--    &lt;!&ndash;                    <div class="d-flex flex-wrap">&ndash;&gt;-->
+<!--    &lt;!&ndash;                        <div class="me-3 mt-1">&ndash;&gt;-->
+<!--    &lt;!&ndash;                            сложность: любой уровень&ndash;&gt;-->
+<!--    &lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--    &lt;!&ndash;                        <div class="me-3 mt-1">&ndash;&gt;-->
+<!--    &lt;!&ndash;                            модули: 4&ndash;&gt;-->
+<!--    &lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--    &lt;!&ndash;                        <div class="me-3 mt-1">&ndash;&gt;-->
+<!--    &lt;!&ndash;                            уроки: 10&ndash;&gt;-->
+<!--    &lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--    &lt;!&ndash;                        <div class="me-3 mt-1">&ndash;&gt;-->
+<!--    &lt;!&ndash;                            статус: завершён&ndash;&gt;-->
+<!--    &lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--    &lt;!&ndash;                        <div class="me-3 mt-1">&ndash;&gt;-->
+<!--    &lt;!&ndash;                           автор: Быков Иван&ndash;&gt;-->
+<!--    &lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--    &lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--    &lt;!&ndash;                    <div>&ndash;&gt;-->
+<!--    &lt;!&ndash;                        Использованные материалы:&ndash;&gt;-->
+<!--    &lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--                    </div>-->
+                </div>
+            </div>
+
+            <h2 class="border-bottom">Программа</h2>
+            {% for module in modules %}
+            <div class="card border container my-3 py-2">
+                <div class="fs-5">
+                    Модуль {{ module.number }}
+                </div>
+                <div class="fs-4">
+                    {{ module.name }}
+                </div>
+<!--                <div>-->
+<!--                    5 уроков-->
+<!--                </div>-->
+                <a class="stretched-link" data-bs-toggle="collapse" href="#collapseModule{{ module.number }}"></a>
+            </div>
+
+            <div class="collapse container" id="collapseModule{{ module.number }}">
+                {% for lesson in lessons %}
+                {% if module.slug == lesson.module.slug %}
+                <a class="link-underline link-underline-opacity-0 text-body" href="{% url 'lesson' course.slug module.slug lesson.slug %}">
+                    <div class="border-top">
+                        <div class="fs-5 mt-2">
+                            Урок {{ lesson.number }}
+                        </div>
+                        <div class="fs-4">
+                            {{ lesson.name }}
+                        </div>
+                    </div>
+                </a>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+{% endblock %}

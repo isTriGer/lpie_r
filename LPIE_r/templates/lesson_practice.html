@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Практика
+{% endblock %}
+{% block content %}
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-lg-10">
+                    <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="{% url 'lesson' course_slug module_slug lesson_slug %}">Теория</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Практика</a>
+                            </li>
+                        </ul>
+                    <div class="border border-top-0">
+                        <div class="container p-3 fs-5">
+                            <nav aria-label="...">
+                                <ul class="pagination pagination-sm">
+                                    {% for page in hw.paginator.page_range %}
+                                    <li class="page-item"><a class="page-link" href="{% url 'practice' course_slug module_slug lesson_slug page %}">{{ page }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </nav>
+                            {% if hw %}
+                            {% for ex in hw %}
+                                <h2>Задание {{ ex.number }}.</h2>
+                                <div>
+                                    {% autoescape off %}
+                                        {{ ex.question }}
+                                    {% endautoescape %}
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="question_id" value="{{ ex.id }}">
+                                            <input type="text" name="answer">
+                                            <button type="submit">Отправить</button>
+                                    </form>
+                                    {% if result %}
+                                        <p>{{ result }}</p>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                            {% else %}
+                                <p>Практика отсутствует</p>
+                                <p class="fs-1">404</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
